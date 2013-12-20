@@ -2,6 +2,7 @@ package com.stanfy.spoon.gradle
 
 import com.android.build.gradle.AppPlugin
 import com.squareup.spoon.SpoonRunner
+import com.squareup.spoon.html.HtmlRenderer
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.InputFile
@@ -68,6 +69,10 @@ class SpoonRunTask extends DefaultTask implements VerificationTask {
 
     LOG.debug("Ignore failures: $ignoreFailures")
     LOG.debug("Debug mode: $debug")
+
+    // XXX: for some reason this call inside spoon device runner returns null sometimes
+    //      looks like a class loader issue since forcing the class to be loaded here seem to fix the problem
+    assert HtmlRenderer.class.getResourceAsStream("/static/arrows.png") != null
 
     if (className) {
       LOG.debug("Class name: $className")

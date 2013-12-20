@@ -29,6 +29,7 @@ jar {
 }
 
 repositories {
+  mavenLocal()
   mavenCentral()
 }
 
@@ -36,7 +37,7 @@ dependencies {
   compile gradleApi()
   compile localGroovy()
 
-  compile 'com.squareup.spoon:spoon-runner:1.1.0'
+  compile 'com.squareup.spoon:spoon-runner:1.1.1-SNAPSHOT'
 
   compile 'com.android.tools.build:gradle:0.6.+'
 

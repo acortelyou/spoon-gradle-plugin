@@ -5,7 +5,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:0.6.+'
+    classpath 'com.android.tools.build:gradle:0.7.+'
     classpath 'com.stanfy.spoon:spoon-gradle-plugin:0.9.3-SNAPSHOT'
   }
 }
@@ -27,6 +27,26 @@ android {
     testPackageName "com.stanfy.spoon.example.test"
     testInstrumentationRunner "android.test.InstrumentationTestRunner"
   }
+
+  productFlavors {
+
+    dev {
+
+    }
+
+    beta {
+
+    }
+
+    free {
+
+    }
+
+    pro {
+
+    }
+
+  }
 }
 
 spoon {
@@ -35,8 +55,9 @@ spoon {
 
 repositories {
   mavenCentral()
+  mavenLocal()
 }
 
 dependencies {
-  instrumentTestCompile "com.squareup.spoon:spoon-client:1.0.5"
+  instrumentTestCompile "com.squareup.spoon:spoon-client:1.1.1-SNAPSHOT"
 }
