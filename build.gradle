@@ -1,5 +1,6 @@
 buildscript {
   repositories {
+    mavenLocal()
     mavenCentral()
   }
   dependencies {
@@ -18,9 +19,6 @@ task wrapper(type: Wrapper) {
 }
 
 jar {
-into('lib') {
-    from 'libs'
-}
   manifest {
     attributes 'Implementation-Title' : 'Gradle plugin for Spoon',
         'Implementation-Version': version,
@@ -33,13 +31,14 @@ into('lib') {
 
 repositories {
   mavenCentral()
+  mavenLocal()
 }
 
 dependencies {
   compile gradleApi()
   compile localGroovy()
 
-  compile files('libs/spoon-runner-1.1.1-SNAPSHOT-jar-with-dependencies-and-adb-fallback.jar')
+  compile 'com.squareup.spoon:spoon-runner:1.1.1-SNAPSHOT'
 
   compile 'com.android.tools.build:gradle:0.6.+'
 
